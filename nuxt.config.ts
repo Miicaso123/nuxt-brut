@@ -3,7 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
   devtools: { enabled: true },
-  ssr: true,
+  ssr: false, 
   css: ['~/assets/css/main.css'],
   vite: {
     plugins: [tailwindcss()],
@@ -19,6 +19,7 @@ export default defineNuxtConfig({
     },
   },
   nitro: {
-    preset: 'netlify',
+    preset: 'netlify', 
   },
+  buildDir: '.output', 
 });
