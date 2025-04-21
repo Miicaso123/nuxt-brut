@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+@import 'swiper/css';
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.container-custom {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 20px;
+  padding-right: 20px;
+}
