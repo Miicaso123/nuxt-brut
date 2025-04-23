@@ -21,29 +21,17 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, ref } from 'vue';
+<script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Pagination, Autoplay, Navigation } from 'swiper/modules';
+
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
-export default defineComponent({
-  name: 'WineSlider',
-  components: {
-    Swiper,
-    SwiperSlide,
-  },
-  setup() {
-    const images = ref(['/images/banner.png', '/images/banner.png', '/images/banner.png']);
+const images = ref(['/images/banner.png', '/images/banner.png', '/images/banner.png']);
 
-    return {
-      images,
-      modules: [Pagination, Autoplay, Navigation],
-    };
-  },
-});
+const modules = [Pagination, Autoplay, Navigation];
 </script>
 
 <style scoped>
@@ -65,7 +53,7 @@ export default defineComponent({
 :deep(.swiper-pagination) {
   display: flex;
   justify-content: center;
-  gap: 20px; 
+  gap: 20px;
   padding-bottom: 10px;
 }
 
@@ -74,7 +62,7 @@ export default defineComponent({
   opacity: 0.7;
   width: 10px;
   height: 10px;
-  margin: 0; 
+  margin: 0;
 }
 
 :deep(.swiper-pagination-bullet-active) {

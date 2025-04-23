@@ -1,7 +1,6 @@
 import { defineStore } from 'pinia';
 import { ref } from 'vue';
 
-// Интерфейс для состояния меню
 interface MenuState {
   isMenuOpen: boolean;
 }

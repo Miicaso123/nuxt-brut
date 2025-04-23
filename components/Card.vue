@@ -56,24 +56,15 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent, type PropType } from 'vue';
+<script setup lang="ts">
 import { useCardList } from '@/stores/card';
 import type { Card } from '@/stores/card';
 
-export default defineComponent({
-  name: 'Card',
-  props: {
-    card: {
-      type: Object as PropType<Card>,
-      required: true,
-    },
-  },
-  setup() {
-    const cardList = useCardList();
-    return { cardList };
-  },
-});
+defineProps<{
+  card: Card;
+}>();
+
+const cardList = useCardList();
 </script>
 
 <style scoped>

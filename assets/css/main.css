@@ -5,6 +5,13 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+img {
+  user-drag: none;
+  -webkit-user-drag: none;
+  user-select: none;
+  pointer-events: auto;
+}
+
 .container-custom {
   max-width: 1200px;
   margin-left: auto;

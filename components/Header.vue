@@ -39,7 +39,7 @@
       <!-- логотип и бургер-меню -->
       <div class="flex flex-1 items-center space-x-4">
         <button class="flex items-center space-x-1 md:hidden" @click="toggleMenu">
-          <img src="./../public/images/nav-burger.svg" alt="nav-burger">
+          <img src="./../public/images/nav-burger.svg" alt="nav-burger" />
         </button>
         <img src="./../public/images/title.svg" alt="title" class="" />
       </div>
@@ -80,7 +80,6 @@
 </template>
 
 <script setup lang="ts">
-import Navbar from './Navbar.vue';
 import { useLanguageStore } from './../stores/language';
 import { useMenuStore } from './../stores/menu';
 

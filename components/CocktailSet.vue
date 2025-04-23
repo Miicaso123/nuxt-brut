@@ -14,7 +14,7 @@
         :key="index"
         class="w-[335px] flex flex-col items-center border border-gray-200 p-4 text-center transition-all duration-300 hover:shadow-2xl"
       >
-        <img :src="item.image" :alt="item.title" class="mb-4" />
+        <img :src="item.image" :alt="item.title" class="mb-4 h-[233px]" />
         <div class="flex flex-col justify-between items-center border-b border-gray-200 pb-4">
           <h3 class="text-sm font-semibold">{{ item.title }}</h3>
           <p class="text-2xl font-medium mt-2">{{ item.price }} тг</p>
@@ -53,7 +53,6 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, onUnmounted } from 'vue';
 import { Swiper, SwiperSlide } from 'swiper/vue';
 import { Navigation } from 'swiper/modules';
 
