@@ -1,11 +1,11 @@
 <template>
   <div class="Card">
     <div
-      class="w-[240px] border border-gray-200 p-4 text-center cursor-pointer transition-all duration-300 hover:shadow-2xl"
+      class="w-[250px] h-[440px] border border-gray-200 p-4 flex flex-col text-center cursor-pointer transition-all duration-300 hover:shadow-2xl"
     >
-      <div class="flex justify-between items-center border-b border-gray-200">
-        <h3 class="text-sm font-semibold">{{ card.name }}, {{ card.year }}</h3>
-        <button class="text-gray-500 cursor-pointer">
+      <div class="flex justify-between items-start border-b border-gray-200 pb-2 min-h-[60px]">
+        <h3 class="text-sm font-semibold text-left">{{ card.name }}</h3>
+        <button class="text-gray-500 cursor-pointer flex-shrink-0">
           <svg
             class="w-5 h-5"
             fill="none"
@@ -23,9 +23,14 @@
         </button>
       </div>
       <p class="text-xs text-left mt-1">{{ card.sku }}</p>
-      <img :src="card.image" alt="Wine bottle" class="h-48 mx-auto my-2" />
-      <p class="text-xs text-gray-500">{{ card.country }}, {{ card.type }}, {{ card.volume }}</p>
+      <div class="flex-1 flex items-center justify-center my-2">
+        <img :src="card.image" alt="Wine bottle" class="h-48 object-contain" />
+      </div>
+      <p class="text-xs text-gray-500">
+        {{ card.country }}, {{ card.type }}, {{ card.volume }}
+      </p>
       <p class="text-2xl font-medium mt-2 pt-2 border-t border-gray-200">{{ card.price }} тг</p>
+
       <div class="flex justify-center items-center mt-2 space-x-2">
         <div
           class="w-[110px] h-[34px] flex justify-center items-center space-x-2 border border-black"
@@ -36,7 +41,7 @@
           >
             <p class="text-xl">-</p>
           </button>
-          <span class="px-2 text-gray-900">{{ card.quantity }}</span>
+          <span class="px-2 text-gray-900">{{ card.additem }}</span>
           <button
             @click="cardList.incrementQuantity(card.id)"
             class="px-2 py-1 text-black rounded cursor-pointer"
@@ -44,7 +49,6 @@
             <p class="text-xl">+</p>
           </button>
         </div>
-
         <button
           @click="cardList.addToCart(card.id)"
           class="p-2 bg-black w-[110px] h-[34px] flex justify-center cursor-pointer"
@@ -59,16 +63,22 @@
 <script setup lang="ts">
 import { useCardList } from '@/stores/card';
 import type { Card } from '@/stores/card';
+import { onMounted } from 'vue';
 
 defineProps<{
   card: Card;
 }>();
 
 const cardList = useCardList();
+
+onMounted(() => {
+  cardList.initializeProducts();
+});
 </script>
 
 <style scoped>
 .Card {
   width: 100%;
 }
+
 </style>
