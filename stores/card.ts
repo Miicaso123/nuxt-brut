@@ -28,6 +28,8 @@ export const useCardList = defineStore('card', {
       try {
         const response = await axios.get('https://brut.kz/api/products/recommended');
 
+        console.log('Данные с API:', response.data);
+
         this.cards = response.data.products.map((product: any) => {
           const countryAttr = product.attributes.find((attr: any) => attr.name === 'Страна');
           const colorAttr = product.attributes.find((attr: any) => attr.name === 'Цвет');
@@ -48,7 +50,7 @@ export const useCardList = defineStore('card', {
             id: product.id,
             name: product.name,
             sku: product.sku || 'N/A',
-            image: product.image || '/images/default-wine.svg',
+            image: product.image || '/images/cardwine.svg',
             country: countryAttr?.values[0]?.name || 'Не указано',
             type: type,
             volume: volumeAttr?.values[0]?.name || 'N/A',

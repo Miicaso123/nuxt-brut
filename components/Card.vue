@@ -26,9 +26,7 @@
       <div class="flex-1 flex items-center justify-center my-2">
         <img :src="card.image" alt="Wine bottle" class="h-48 object-contain" />
       </div>
-      <p class="text-xs text-gray-500">
-        {{ card.country }}, {{ card.type }}, {{ card.volume }}
-      </p>
+      <p class="text-xs text-gray-500">{{ card.country }}, {{ card.type }}, {{ card.volume }}</p>
       <p class="text-2xl font-medium mt-2 pt-2 border-t border-gray-200">{{ card.price }} тг</p>
 
       <div class="flex justify-center items-center mt-2 space-x-2">
@@ -63,22 +61,16 @@
 <script setup lang="ts">
 import { useCardList } from '@/stores/card';
 import type { Card } from '@/stores/card';
-import { onMounted } from 'vue';
 
 defineProps<{
   card: Card;
 }>();
 
 const cardList = useCardList();
-
-onMounted(() => {
-  cardList.initializeProducts();
-});
 </script>
 
 <style scoped>
 .Card {
   width: 100%;
 }
-
 </style>

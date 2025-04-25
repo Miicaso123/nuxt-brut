@@ -9,7 +9,7 @@
           Сайт содержит информацию, не рекомендованную для лиц, не достигших совершеннолетнего
           возраста. Вам исполнилось 21?
         </p>
-        <div class="flex justify-around">
+        <div class="flex gap-4">
           <button class="btn" @click="confirmAge">Да</button>
           <button class="btn" @click="declineAge">Нет</button>
         </div>
@@ -65,7 +65,7 @@ onMounted(() => {
 }
 
 .btn {
-  width: 180px;
+  width: 50%;
   height: 45px;
   background-color: #000000;
   color: #ffffff;

@@ -4,21 +4,20 @@
       ref="scrollContainer"
       class="flex overflow-x-auto space-x-4 py-4 no-scrollbar cursor-grab active:cursor-grabbing select-none"
     >
-      <Card v-for="card in cardList.cards" :key="card.id" :card="card" />
+      <Card v-for="card in cards" :key="card.id" :card="card" />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { useCardList } from '@/stores/card';
+import type { Card } from '@/stores/card';
 import { useEventListener } from '@vueuse/core';
 
-const cardList = useCardList();
+defineProps<{ cards: Card[] }>();
+
 const scrollContainer = ref<HTMLElement | null>(null);
 
 onMounted(() => {
-  cardList.initializeProducts();
-
   const el = scrollContainer.value;
   if (!el) return;
 
